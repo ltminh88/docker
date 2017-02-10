@@ -1,0 +1,23 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  host: <%= ENV["DATABASE_HOSTNAME"] %>
+  database: <%= ENV["DATABASE_NAME"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+
+development:
+  <<: *default
+  database: krk_development
+
+test:
+  <<: *default
+  database: krk_test
+
+staging:
+  <<: *default
+  database: krk_staging
+
+production:
+  <<: *default
+  database: krk_production
