@@ -1,0 +1,30 @@
+build:
+  #image: framgia/ruby-workspace-ci
+  #image: octoberstorm/rubycap
+  image: octoberstorm/rails-base
+  #pull: true
+  commands:
+    - sudo start redis
+    - cp config/database-ci.yml config/database.yml
+    - /bin/bash -c "source /etc/profile.d/rvm.sh && gem update eslint-rails && bundle install && RAILS_ENV=test rake db:create db:migrate && framgia-ci run"
+
+deploy:
+  heroku:
+    app: polar-anchorage-34648
+    force: true
+
+compose:
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: ci_test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: root
+  redis:
+    image: redis:3.0.7
+  elasticsearch:
+    image: elasticsearch:2.4.2
+cache:
+  mount:
+    - .git
