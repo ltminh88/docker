@@ -25,4 +25,4 @@ COPY Gemfile.lock /cache/Gemfile.lock
 RUN /bin/bash -l -c "cd /cache && bundle install"
 
 # Run framgia CI 
-RUN wget -O /usr/bin/framgia-ci https://raw.githubusercontent.com/framgia/ci-report-tool/master/dist/framgia-ci && chmod +x /usr/bin/framgia-ci
+RUN curl -o /usr/bin/framgia-ci https://raw.githubusercontent.com/framgia/ci-report-tool/master/dist/framgia-ci && chmod +x /usr/bin/framgia-ci
