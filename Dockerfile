@@ -10,13 +10,13 @@ RUN apt-get install -y patch curl imagemagick graphicsmagick-libmagick-dev-compa
 # Config uft8 mysql
 
 RUN echo "[client]" > /etc/mysql/conf.d/utf8.cnf
-RUN echo "default-character-set=utf8" >> /etc/mysql/conf.d/utf8.cnf
+RUN echo "default-character-set=utf8mb4" >> /etc/mysql/conf.d/utf8.cnf
 RUN echo "[mysql]" >> /etc/mysql/conf.d/utf8.cnf
-RUN echo "default-character-set=utf8" >> /etc/mysql/conf.d/utf8.cnf
+RUN echo "default-character-set=utf8mb4" >> /etc/mysql/conf.d/utf8.cnf
 RUN echo "[mysqld]" >> /etc/mysql/conf.d/utf8.cnf
-RUN echo "collation-server = utf8_unicode_ci" >> /etc/mysql/conf.d/utf8.cnf
-RUN echo "init-connect='SET NAMES utf8'" >> /etc/mysql/conf.d/utf8.cnf
-RUN echo "character-set-server = utf8" >> /etc/mysql/conf.d/utf8.cnf 
+RUN echo "collation-server = utf8mb4_unicode_ci" >> /etc/mysql/conf.d/utf8.cnf
+RUN echo "init-connect='SET NAMES utf8mb4'" >> /etc/mysql/conf.d/utf8.cnf
+RUN echo "character-set-server = utf8mb4" >> /etc/mysql/conf.d/utf8.cnf 
 
 # Install Rvm, Ruby and Bundler
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import -
