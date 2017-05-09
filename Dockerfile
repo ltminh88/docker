@@ -6,7 +6,7 @@ RUN apt-get -y update
 
 
 # Install dependences package for ruby environment 
-RUN apt-get install -y patch curl imagemagick libmagickwand-dev graphicsmagick-libmagick-dev-compat build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion libmysqlclient18 libmysqlclient-dev mysql-server  memcached mongodb monit graphviz nodejs redis-server acct sysv-rc-conf tomcat6 tomcat6-admin postfix mailutils libsasl2-2 ca-certificates libsasl2-modules vim htop libcurl4-openssl-dev npm libicu-dev libgdbm-dev libncurses5-dev libreadline-dev libffi-dev checkinstall logrotate
+RUN apt-get install -y patch curl imagemagick libmagickwand-6.q16-dev graphicsmagick-libmagick-dev-compat build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion libmysqlclient18 libmysqlclient-dev mysql-server  memcached mongodb monit graphviz nodejs redis-server acct sysv-rc-conf tomcat6 tomcat6-admin postfix mailutils libsasl2-2 ca-certificates libsasl2-modules vim htop libcurl4-openssl-dev npm libicu-dev libgdbm-dev libncurses5-dev libreadline-dev libffi-dev checkinstall logrotate
 # Config uft8 mysql
 
 #RUN echo "[client]" > /etc/mysql/conf.d/utf8.cnf
